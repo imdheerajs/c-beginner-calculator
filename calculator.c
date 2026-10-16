@@ -1,49 +1,73 @@
+
 #include <stdio.h>
+
 int main()
 {
-    printf("hello word\n");
-    int a;
-    int b;
-    int f;
-    printf("WELCOME TO THIS CLACULATOR \n    ");
+    printf("Hello World!\n");
+
+    int firstno;
+    int secondno;
+    int choice;
+    int again;
+
+    printf("WELCOME TO THIS CALCULATOR\n");
+
     do
     {
-        printf(" please entre a first number\n");
-        scanf("%d",&a);
-        printf("Your number is : ");
-        printf("%d\n",a);
-        printf("now entre a second number :");
-        scanf("%d",&b);
-        int c;
-        printf("your second number is this :%d\n",b);
-        printf("now entre your operator \n");
-        printf("entre 1 for additon\n");
-        printf("entre 2 for minus \n");
-        printf("entre 3 for multiply\n");
-        printf("entre 4 for divide \n");
-        scanf("%d",&c);
-        printf("Your Answer is :");
-        if (c==1) {
-            printf("%d",a+b);
-        }
-        else if (c==2)
-        {
-            printf("%d",a-b);
-        }
-        else if (c==3) {
-            printf("%d",a*b);
-        }
-        else if (c==4) {
-            float d=(float)a/b;
-            printf("%f",d);
-        }
-        else {
-            printf("YOU MAKE A MISTAKE ");
-        }
-        printf("\nIF YOU WNAT TO USE AGAIN CALCUALTOR SHOW ENTRE '1' IF YOU NOT USE CALCULATOR SHOW ENTRE ANY NUMBER\n");
-        scanf("%d",&f);
-    } while (f == 1);
-        printf("THANK YOU FOR USING A CALCULATOR ");
-    return 0;
+        printf("\nPlease enter the first number: ");
+        scanf("%d", &firstno);
 
+        printf("Your first number is: %d\n", firstno);
+
+        printf("Please enter the second number: ");
+        scanf("%d", &secondno);
+
+        printf("Your second number is: %d\n", secondno);
+
+        printf("\nEnter your operator:\n");
+        printf("Enter 1 for addition\n");
+        printf("Enter 2 for subtraction\n");
+        printf("Enter 3 for multiplication\n");
+        printf("Enter 4 for division\n");
+
+        scanf("%d", &choice);
+
+        if (choice == 1)
+        {
+            printf("Your answer is: %d\n",
+                   firstno + secondno);
+        }
+        else if (choice == 2)
+        {
+            printf("Your answer is: %d\n",
+                   firstno - secondno);
+        }
+        else if (choice == 3)
+        {
+            printf("Your answer is: %d\n",
+                   firstno * secondno);
+        }
+        else if (choice == 4 && secondno != 0)
+        {
+            float division = (float)firstno / secondno;
+            printf("Your answer is: %.2f\n", division);
+        }
+        else if (choice == 4 && secondno == 0)
+        {
+            printf("Error: Cannot divide by zero!\n");
+        }
+        else
+        {
+            printf("Error: Invalid operator!\n");
+        }
+
+        printf("\nDo you want to use the calculator again?\n");
+        printf("Enter 1 for Yes or any other number for No: ");
+        scanf("%d", &again);
+
+    } while (again == 1);
+
+    printf("\nThank you for using the calculator!\n");
+
+    return 0;
 }
